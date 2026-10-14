@@ -1,0 +1,13 @@
+services:
+  offlinepay:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DB_PATH: /data/payments.db
+      BANK_KEY_FILE: /data/bank_private.pem
+      ALLOW_DEMO_RESET: "1"
+    volumes:
+      - offlinepay_data:/data
+volumes:
+  offlinepay_data:
